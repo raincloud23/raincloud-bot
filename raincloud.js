@@ -13,12 +13,11 @@ client.on('message', msg => {
   let msgArray = message.content.split(" ");
   let cmd = msgArray[0].slice(prefix.length);
   let args = msgArray.slice(1);
-  if (cmd === 'ping') {
-        message.channel.send('pong!')
-    } else if (cmd == 'foo') {
-        message.channel.send('bar!')
-    }
-
+  if (cmd === 'ping'){
+    message.channel.send('pong!')
+  }
+  if(cmd == 'foo'){
+    message.channel.send('bar!')
+  }
 });
-
 client.login(botToken);
