@@ -24,10 +24,5 @@ client.on("message", message => {
     let reason = args.slice(1).join(" ");
     member.kick(reason);
   };
-  if(command === "ban") {
-    let member = message.mentions.members.first();
-    let reason = args.slice(1).join(" ");
-    member.ban(reason);
-  };
 });
 client.login(botToken);
