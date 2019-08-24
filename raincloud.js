@@ -28,6 +28,8 @@ client.on("message", message => {
       message.member.reply('Lacking a reason, please add a reason');
     } else if (member === message.author) {
       message.member.reply('Cannot kick yourself'); 
+    } else if (!member.kickable) {
+      message.member.reply('Member cannot be kicked');
     } else {
       member.kick(reason);
     }
