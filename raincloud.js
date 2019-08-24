@@ -22,7 +22,15 @@ client.on("message", message => {
   if(command === "kick") {
     let member = message.mentions.members.first();
     let reason = args.slice(1).join(" ");
-    member.kick(reason);
+    if(member === null) {
+      message.member.reply('Lacking a member to ban, please mention a member'); 
+    } else if (reason === null) {
+      message.member.reply('Lacking a reason, please add a reason');
+    } else if (member === message.author) {
+      message.member.reply('Cannot kick yourself'); 
+    } else {
+      member.kick(reason);
+    }
   };
 });
 client.login(botToken);
