@@ -30,8 +30,11 @@ client.on("message", message => {
       message.member.reply('Cannot kick yourself'); 
     } else if (!member.kickable) {
       message.member.reply('Member cannot be kicked');
+    } else if (!message.member.hasPermission('KICK_MEMBERS')) {
+      message.member.reply('You do not have the permissions to kick this member');
     } else {
       member.kick(reason);
+      message.member.reply('Kick successful :P');
     }
   };
 });
